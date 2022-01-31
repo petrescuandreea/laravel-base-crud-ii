@@ -25,4 +25,28 @@ class HomeController extends Controller
 
         return view('pages.create');
     }
+
+    public function store(Request $request) {
+
+        // validation 
+        $data = $request -> validate([
+
+            'name' => 'required|string|max:30',
+            'lastname' => 'required|string|max:30',
+            'date_of_birth' => 'required|date|',
+            'username' => 'required|string|max:30',
+            'email' => 'required|string|max:45',
+            'password' => 'required|string',
+        ]);
+
+        // create new user 
+        $user = User::create($data);
+
+        // insert new user in home page 
+        // return redirect() -> route('home');
+
+        // show new user details 
+        return redirect() -> route('show', $user -> id);
+
+    }
 }
