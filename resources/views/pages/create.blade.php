@@ -18,6 +18,7 @@
             <input type="text" name="email" placeholder="email"><br>
             <label for="password">Password:</label>
             <input type="password" name="password" placeholder="password"><br>
+            <input type="submit" value="CREATE">
         </form>
     </section>
 @endsection
