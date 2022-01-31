@@ -49,4 +49,37 @@ class HomeController extends Controller
         return redirect() -> route('show', $user -> id);
 
     }
+
+    public function edit($id) {
+
+        // find user to edit
+        $user = User::findOrFail($id);
+
+        // go to update "page" 
+        return view('pages.edit', compact('user'));
+    }
+
+    public function update(Request $request, $id) {
+
+        // validation 
+        $data = $request -> validate([
+
+            'name' => 'required|string|max:30',
+            'lastname' => 'required|string|max:30',
+            'date_of_birth' => 'required|date|',
+            'username' => 'required|string|max:30',
+            'email' => 'required|string|max:45',
+            'password' => 'required|string',
+        ]);
+
+        // user to update
+        $user = User::findOrFail($id);
+
+        // update user
+        $user -> update($data);
+
+        //show uptaded user's details
+        return redirect() -> route('show', $user -> id);
+
+    }
 }
