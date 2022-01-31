@@ -10,11 +10,11 @@
 </head>
 <body>
 
-    @extends('components.header')
+    @include('components.header')
 
     @yield('content')
 
-    @extends('components.footer')
+    @include('components.footer')
     
 </body>
 </html>
