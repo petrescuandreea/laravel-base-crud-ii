@@ -13,4 +13,11 @@ class HomeController extends Controller
 
         return view('pages.home', compact('users'));
     }
+
+    public function show($id) {
+
+        $user = User::findOrFail($id);
+
+        return view('pages.show', compact('user'));
+    }
 }
