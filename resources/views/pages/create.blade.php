@@ -5,7 +5,22 @@
             Create new user
         </h2>
 
-        <form action="#">
+        {{-- error  --}}
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif 
+
+        <form action="{{ route('store') }}" method="POST">
+
+            @method("POST")
+            @csrf
+
             <label for="name">Name:</label>
             <input type="text" name="name" placeholder="name"><br>
             <label for="lastname">Latsname:</label>
@@ -20,5 +35,7 @@
             <input type="password" name="password" placeholder="password"><br>
             <input type="submit" value="CREATE">
         </form>
+
+        <a href="{{ route('home') }}">Go back to users list</a>
     </section>
 @endsection
