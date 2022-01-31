@@ -20,4 +20,9 @@ class HomeController extends Controller
 
         return view('pages.show', compact('user'));
     }
+
+    public function create() {
+
+        return view('pages.create');
+    }
 }
