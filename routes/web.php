@@ -11,3 +11,5 @@ Route::post('user/store', 'HomeController@store') -> name('store');
 
 Route::get('user/edit/{id}', 'HomeController@edit') -> name('edit');
 Route::post('user/update/{id}', 'HomeController@update') -> name('update');
+
+Route::get('user/delete/{id}', 'HomeController@delete') -> name('delete');
