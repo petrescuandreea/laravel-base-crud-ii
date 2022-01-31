@@ -14,6 +14,7 @@
                         {{ $user -> name }} {{ $user -> lastname }}
                     </a> 
                     - <a href="{{ route('edit', $user -> id) }}">EDIT</a>
+                    - <a href="{{ route('delete', $user -> id) }}">DELETE</a>
                 </li>
                 
             @endforeach
