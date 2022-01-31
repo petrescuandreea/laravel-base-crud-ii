@@ -13,6 +13,7 @@
                     <a href="{{ route('show', $user -> id) }}"> 
                         {{ $user -> name }} {{ $user -> lastname }}
                     </a> 
+                    - <a href="{{ route('edit', $user -> id) }}">EDIT</a>
                 </li>
                 
             @endforeach
