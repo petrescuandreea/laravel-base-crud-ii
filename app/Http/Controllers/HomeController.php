@@ -80,6 +80,17 @@ class HomeController extends Controller
 
         //show uptaded user's details
         return redirect() -> route('show', $user -> id);
+    }
 
+    public function delete($id) {
+
+        // user to delete 
+        $user = User::findOrFail($id);
+
+        // delete user 
+        $user -> delete();
+
+        // return to home page 
+        return redirect() -> route('home');
     }
 }
